@@ -1,0 +1,41 @@
+<!--Original script by Mert Bora İnevi (Boraini), prepared for rcchat.tk-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="gui.js"></script>
+<link rel="stylesheet" href="main.css"></link>
+</head>
+<body>
+<div id="navbar">
+<button class="button" style="float: right; margin-right: 20px;">Çıkış Yap</button>
+<span id="navbar-text">Oda Bilgisi</span>
+</div>
+<div id="wrapper" style="width: 100%">
+<input id="sidebar_collapse" type="checkbox" style="display: none;"></input>
+<label for="sidebar_collapse" class="showmenu">Yan Çubuğu Göster/Gizle <div class="emoji_collapsetriangle"></div></label>
+<div id="sidebar">
+<form class="usernamechange" action="change-username-action">
+<h3>Kullanıcı Adı Değiştir</h3>
+<input type="text"><label class="button" for="usrsubmit">Değiştir</label>
+<input id="usrsubmit" type="submit" style="display: none;">
+</form>
+</div>
+<div style="float: right; width: 0px; height: 0px;">&nbsp;</div>
+<div id="chatwrapper">
+<div id="chat"></div>
+<label for="msg">
+<form class="inputbar" action="message_send_action">
+<div style="float: left; width: 0px; height: 0px;">&nbsp;</div>
+<label for="sendbtn" class="submit"><div class="emoji_sendtriangle">&nbsp;</div></label>
+<input id="sendbtn" type="submit" style="display: none;">
+<div class="filler">
+<textarea id="msg" type="text" rows="1"></textarea>
+</div>
+</form>
+</label>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,205 @@
+@keyframes pulsate {
+    0% {transform: scale(0); opacity: 0;}
+    20% {transform: none; opacity: 1;}
+    40% {transform: scale(0.95); opacity: 1;}
+    60% {transform: none; opacity: 1;}
+    80% {transform: scale(0.95); opacity: 1;}
+    100% {transform: none; opacity: 1;}
+}
+body {
+background: linear-gradient(#00464d, #00171a);
+font: 12pt arial;
+overflow: hidden;
+margin: 0px;
+padding: 0px;
+left: 0px;
+top: 0px;
+}
+.button {
+display: inline-block;
+appearance: none;
+-webkit-appearance: none;
+margin: 0;
+border: 0;
+padding: 0.2em;
+background: rgba(0, 0, 0, 0.4);
+color: white;
+font: inherit;
+}
+.button:hover {
+background: white;
+color: black;
+}
+.button:active {
+background: black;
+color: white;
+}
+#sidebar {
+position: relative;
+float: left;
+width: 0;
+height: 100%;
+padding: 0px;
+background-color: #00838e;
+transition: width 0.5s;
+margin-right: 10px;
+overflow: hidden;
+overflow-y: scroll;
+text-align: center;
+white-space: nowrap;
+z-index: 50;
+}
+#sidebar_collapse:checked + * + #sidebar {
+    width: 300px;
+}
+@media only screen and (max-width: 500px) {
+    #sidebar_collapse:checked + * + #sidebar {
+        width: 100%;
+    }
+    #sidebar {
+        position: absolute;
+    }
+}
+
+#sidebar .usernamechange {
+position: absolute;
+box-sizing: border-box;
+padding: 10px;
+width: 80%;
+left: 10%;
+bottom: 20px;
+background-color: #4fb3be;
+}
+#chatwrapper {
+position: relative;
+overflow: hidden;
+}
+#chat {
+width: 100%;
+height: 100%;
+overflow-y: scroll;
+}
+.time {
+color: grey;
+font-size: 8pt;
+}
+.bubble, .selfbubble {
+position: relative;
+margin: 20px;
+border: 0px;
+border-radius: 10px;
+padding: 10px;
+max-width: 400px;
+animation-name: pulsate;
+animation-duration: 0.3s;
+animation-fill-mode: forward;
+}
+.bubble {background-color: #fff; margin-right: 0px;}
+.selfbubble {margin-left: auto; margin-right: 20px; background-color: #ffe54c;}
+.bubble:after, .selfbubble:after {
+position: absolute;
+width: 0px;
+height: 0px;
+content: " ";
+margin: 0px;
+border-width: 10px;
+border-color: transparent white transparent transparent;
+border-style: solid;
+left: -20px;
+top: 50%;
+transform: translateY(-50%);
+}
+.selfbubble:after {
+left: auto;
+right: -20px;
+border-color: transparent transparent transparent #ffe54c;
+}
+.infobox {
+margin: 20px auto;
+background-color: #f84;
+border-radius: 5px;
+padding: 5px;
+max-width: 500px;
+text-align: center;
+}
+@media only screen and (max-width: 800px) {
+.bubble:first-child, .selfbubble:first-child, .infobox:first-child {
+margin-top: 40px;
+}
+}
+.bubble:last-child, .selfbubble:last-child, .infobox:last-child {
+margin-bottom: 100px;
+}
+.showmenu {
+-webkit-appearance: none;
+display: block;
+position: fixed;
+background-color: white;
+padding: 10px;
+border: 1px solid black;
+border-radius: 10px;
+z-index: 99;
+}
+#navbar {
+width: 100%;
+background-color: #ffb300;
+font-size: 18pt;
+font-weight: bold;
+padding: 10px;
+border-bottom: 1px solid black;
+}
+.inputbar {
+position: absolute;
+width: 80%;
+padding: 0px;
+border: 1px solid black;
+border-radius: 10px;
+bottom: 30px;
+left: 50%;
+z-index: 40;
+transform: translateX(-50%);
+background-color: white;
+vertical-align: bottom;
+}
+.inputbar label.submit {
+display: block;
+float: right;
+margin: 0px;
+border: 1px solid black;
+border-radius: 10px;
+padding: 10px;
+width: 1em;
+height: 1em;
+background-color: #00838e;
+text-align: center;
+}
+.filler {
+overflow: hidden;
+}
+#msg {
+display: block;
+width: 100%;
+overflow-y: scroll;
+appearance: none;
+-webkit-appearance: none;
+border: none;
+background: none;
+resize: none;
+font: inherit;
+}
+.emoji_sendtriangle, .emoji_collapsetriangle {
+display: inline-block;
+width: 0px;
+height: 0px;
+border-width: 0.5em 0 0.5em 0.866em;
+border-style: solid;
+border-color: transparent transparent transparent white;
+transform: translateX(0.144em);
+}
+.emoji_collapsetriangle {
+border-color: transparent transparent transparent black;
+transition: transform 0.5s;
+}
+:checked + label .emoji_collapsetriangle {
+transform: translateY(0.144em) rotate(90deg);
+}
